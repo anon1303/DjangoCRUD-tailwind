@@ -1,0 +1,16 @@
+{% extends "movies/_base.html" %}
+
+<html>
+    <body>
+        {% block content %}
+
+        <h1>
+            This is my about page!
+        </h1>
+        {% load static %}
+        <img width="100px" src="{% static 'movies/1.png' %}" alt="this is me">
+        </img>
+        {% endblock %}
+
+    </body>
+</html>

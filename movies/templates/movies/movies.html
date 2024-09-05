@@ -1,0 +1,25 @@
+{% extends "movies/_base.html" %}
+
+<html>
+    <body>
+        {% block content %}
+
+        <h1>
+            List of my movies:
+            {% if movies%}
+                <ul>
+                    {%for movie in movies%}
+                        <!-- make the li clickable and get the item pk to pass to the movie-detail page -->
+                        <li><a href="{% url 'movie-detail' movie.pk %}">{{ movie.title}}</a> </li>
+                    {%endfor%}
+                </ul>
+            {%else%}
+                <p>
+                    <h1> No movies found</h1>
+                </p>
+            {%endif%}
+        </h1>
+        {% endblock %}
+
+    </body>
+</html>

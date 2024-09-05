@@ -1,0 +1,20 @@
+{% extends "movies/_base.html" %}
+
+<html>
+    <body>
+        {% block content %}
+        <div style="text-align: right;">
+            <a href="{% url 'list' %}"> Go back</a>
+        </div>
+        <center> 
+                    <h2><b>{{ movies.title}}</h2></b>
+                    {{ movies.genre}}
+                    <hr>
+                    {{ movies.description}} 
+        </center>
+        
+
+        {% endblock %}
+
+    </body>
+</html>
