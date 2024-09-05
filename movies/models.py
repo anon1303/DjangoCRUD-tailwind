@@ -6,6 +6,7 @@ class ListMovies(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     genre = models.CharField(  max_length=100)
+    image = models.TextField(default='')
 
 
 # makemigrations

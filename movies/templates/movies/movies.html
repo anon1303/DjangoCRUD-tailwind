@@ -4,15 +4,41 @@
     <body>
         {% block content %}
 
+
+        
         <h1>
-            List of my movies:
             {% if movies%}
-                <ul>
                     {%for movie in movies%}
-                        <!-- make the li clickable and get the item pk to pass to the movie-detail page -->
-                        <li><a href="{% url 'movie-detail' movie.pk %}">{{ movie.title}}</a> </li>
+                    <div class="p-1 flex flex-wrap items-center justify-center">
+                        <a href="{% url 'movie-detail' movie.pk %}">
+                        <div class="flex-shrink-0 m-6 relative overflow-hidden bg-white-500 rounded-lg max-w-xs shadow-lg group">
+                            <svg class="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform"
+                                viewBox="0 0 375 283" fill="none" style="opacity: 0.1;">
+                                <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white" />
+                                <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
+                            </svg>
+        <!-- {% load static %} -->
+
+                            <div class="relative pt-10 px-10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                                    style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;">
+                                </div>
+                                <img class="relative w-40" src="{{ movie.image }}" alt="{{ movie.title}}">
+                            </div>
+                            <div class="relative text-white px-6 pb-6 mt-6">
+                                <span class="block text-black opacity-75 -mb-1">{{ movie.genre}}</span>
+                                <div class="flex justify-between">
+                                    <span class="block font-semibold text-black text-xl">
+                                        {{ movie.title}}
+                                    </span>
+                                    <span class="block bg-white rounded-full text-orange-500 text-xs font-bold px-3 py-2 leading-none flex items-center">$36.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- </div> -->
+
                     {%endfor%}
-                </ul>
             {%else%}
                 <p>
                     <h1> No movies found</h1>
